@@ -7,9 +7,19 @@
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 import Header from "./header"
 import "./layout.css"
+import SocialLinks from "./social-links"
+
+const Container = styled.div`
+  min-height: 100vh;
+`
+const Footer = styled.footer`
+  position: sticky;
+  bottom: 0;
+`
 
 const Layout: React.FC = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -23,23 +33,22 @@ const Layout: React.FC = ({ children }) => {
   `)
 
   return (
-    <>
+    <Container>
       <Header siteTitle={data.site.siteMetadata.title} />
       <div
         style={{
           margin: `0 auto`,
           maxWidth: 960,
+          minHeight: `74vh`,
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
         <main>{children}</main>
-        <footer>
-          Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </div>
-    </>
+      <Footer>
+        <SocialLinks />
+      </Footer>
+    </Container>
   )
 }
 
