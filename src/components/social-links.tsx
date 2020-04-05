@@ -9,15 +9,18 @@ import {
 } from "@fortawesome/free-brands-svg-icons"
 
 const SocialItem = styled.li`
-  color: rgba(0, 0, 0, 0.5);
   display: block;
 `
 
 const SocialLink = styled.a`
-  color: rgba(0, 0, 0, 0.5);
+  color: ${props => props.theme.primary.link};
+  &:hover {
+    color: ${props => props.theme.primary.linkHover};
+  }
 `
 const SocialList = styled.ul`
   margin: auto;
+  padding: 0;
   align-items: center;
   display: flex;
   flex-wrap: wrap;

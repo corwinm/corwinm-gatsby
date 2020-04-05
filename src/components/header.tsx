@@ -9,37 +9,28 @@ type HeaderProps = {
 const StickyHeader = styled.header`
   position: sticky;
   top: 0;
-  background: white;
+  background: ${props => props.theme.primary.background};
   margin-bottom: 1.45rem;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 5px ${props => props.theme.primary.shadow};
 `
 
 const HeaderContents = styled.div`
-  margin: 0 auto;
-  padding: 1rem 1.0875rem;
   display: flex;
-  width: 100%;
-  flex-direction: column;
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
+  padding: 1rem 1.0875rem;
 `
 
 const HeaderTitle = styled.h1`
-  margin: 0%;
+  margin: 0 auto;
 `
 
 const StyledLink = styled(Link)`
-  color: black;
+  color: ${props => props.theme.primary.link};
   text-decoration: none;
   line-height: 48px;
   margin: 10px;
-`
-const Spacer = styled.div`
-  flex: 1 auto;
-`
-const Nav = styled.nav`
-  height: 48px;
+  &:hover {
+    color: ${props => props.theme.primary.linkHover};
+  }
 `
 
 const Header: React.FC<HeaderProps> = ({ siteTitle = `` }) => (
@@ -48,11 +39,6 @@ const Header: React.FC<HeaderProps> = ({ siteTitle = `` }) => (
       <HeaderTitle>
         <StyledLink to="/">{siteTitle}</StyledLink>
       </HeaderTitle>
-      <Spacer />
-      <Nav>
-        <StyledLink to="/">Home</StyledLink>
-        {/* <StyledLink to="/about">About</StyledLink> */}
-      </Nav>
     </HeaderContents>
   </StickyHeader>
 )
