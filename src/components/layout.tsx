@@ -20,12 +20,12 @@ const Container = styled.div`
 const Footer = styled.footer`
   position: sticky;
   bottom: 0;
+  background: ${props => props.theme.primary.background}D0;
 `
 
 const MainContainer = styled.main`
   margin: 0 auto;
   max-width: ${props => props.theme.primary.maxWidth};
-  min-height: 74vh;
   padding: 0 1.0875rem 1.45rem;
 `
 

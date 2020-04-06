@@ -6,11 +6,11 @@ import {
 
 const baseTheme = {
   primary: {
-    color: "#fff",
+    color: "#FFFFFF",
     fontFamily: "Arial, Helvetica, sans-serif",
-    background: "#000",
+    background: "#000000",
     shadow: "#C80303",
-    link: "#fff",
+    link: "#FFFFFF",
     linkHover: "#C80303",
     maxWidth: "960px",
   },

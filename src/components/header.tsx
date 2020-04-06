@@ -9,7 +9,8 @@ type HeaderProps = {
 const StickyHeader = styled.header`
   position: sticky;
   top: 0;
-  background: ${props => props.theme.primary.background};
+  z-index: 900;
+  background: ${props => props.theme.primary.background}D0;
   margin-bottom: 1.45rem;
   box-shadow: 0px 2px 5px ${props => props.theme.primary.shadow};
 `

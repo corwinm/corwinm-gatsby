@@ -37,9 +37,9 @@ const IndexPage = () => (
     <p>
       I am a Solution Architect for{" "}
       <ProfileLink href="https://www.slalombuild.com/">
-        Slalom Build Seattle
-      </ProfileLink>
-      , husband of Carly, and father of Mayme.
+        Slalom Build
+      </ProfileLink>{" "}
+      in Seattle, husband of Carly, and father of Mayme.
     </p>
     <p>
       I like to try new technologies for building websites and apps and bring
