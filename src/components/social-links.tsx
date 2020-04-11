@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faLinkedin,
@@ -13,7 +14,7 @@ const SocialItem = styled.li`
   display: block;
 `
 
-const SocialLink = styled.a`
+const SocialLink = styled(OutboundLink)`
   color: ${(props) => props.theme.primary.link};
   &:hover {
     color: ${(props) => props.theme.primary.linkHover};
@@ -95,7 +96,7 @@ const SocialLinks: React.FC = () => {
   return (
     <SocialList>
       {socialItems.map((item) => (
-        <SocialItem>
+        <SocialItem key={item.title}>
           <SocialLink
             href={item.link}
             title={item.title}
