@@ -7,7 +7,6 @@ const ImageWrapper = styled(Img)`
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  overflow: hidden;
   margin: auto;
   @media (min-width: 768px) {
     height: 240px;
@@ -30,7 +29,7 @@ const ProfileImage = () => {
     }
   `)
 
-  return <ImageWrapper fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <ImageWrapper imgStyle={{height: 'auto'}} fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
 export default ProfileImage
