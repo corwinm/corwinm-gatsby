@@ -71,7 +71,9 @@ const socialItems = [
     icon: faFacebookSquare,
   },
 ]
+
 const WebShareCategory = "Web Share Button"
+
 const WebShareEvent = {
   category: WebShareCategory,
   action: "share",
