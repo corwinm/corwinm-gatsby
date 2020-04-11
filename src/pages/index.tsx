@@ -23,15 +23,15 @@ const IndexPage = () => (
       <ProfileLink href="https://www.slalombuild.com/">
         Slalom Build
       </ProfileLink>{" "}
-      in Seattle, husband of Carly, and father of Mayme.
+      in Seattle, husband, and father.
     </p>
     <p>
-      I like to try new technologies for building websites and apps and bring
-      what I learn to aid my professional life.
+      I like to try new technologies for building websites and apps. I then
+      apply that learning to aid my professional life.
     </p>
     <p>
       I spend most of my free time enjoying time with my family, but I have been
-      know to play a game or two on my Switch.
+      known to play a game or two on my Switch.
     </p>
     <p>Feel free to check out my links below to get to know me better.</p>
   </Layout>
