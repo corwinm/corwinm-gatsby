@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { OutboundLink, trackCustomEvent } from "gatsby-plugin-google-analytics"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faLinkedin,
@@ -72,6 +72,18 @@ const socialItems = [
   },
 ]
 
+const WebShareCategory = "Web Share Button"
+
+const WebShareEvent = {
+  category: WebShareCategory,
+  action: "share",
+}
+
+const WebShareCancelEvent = {
+  category: WebShareCategory,
+  action: "cancel",
+}
+
 const share = async () => {
   if (navigator.share) {
     try {
@@ -80,8 +92,10 @@ const share = async () => {
         text: "Check out Corwin's website!",
         url: window.location.href,
       })
+      trackCustomEvent(WebShareEvent)
     } catch (error) {
       console.log("Error sharing:", error)
+      trackCustomEvent(WebShareCancelEvent)
     }
   } else {
     window.location.href = `mailto:?subject=${encodeURIComponent(
