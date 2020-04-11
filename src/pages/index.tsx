@@ -3,7 +3,7 @@ import styled from "styled-components"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Image from "../components/image"
+import ProfileImage from "../components/profile-image"
 
 export const ProfileLink = styled.a`
   color: ${(props) => props.theme.primary.link};
@@ -12,26 +12,10 @@ export const ProfileLink = styled.a`
   }
 `
 
-const ImageWrapper = styled.div`
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin: auto;
-  @media (min-width: 768px) {
-    height: 240px;
-    width: 240px;
-    margin: 0 16px 0 0;
-    float: left;
-  }
-`
-
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <ImageWrapper>
-      <Image />
-    </ImageWrapper>
+    <ProfileImage />
     <h1>Software Engineer. Husband. Father.</h1>
     <p>Hi! I'm Corwin. Welcome to my personal site!</p>
     <p>
