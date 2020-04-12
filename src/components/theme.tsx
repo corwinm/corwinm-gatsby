@@ -116,11 +116,11 @@ const Toggle: React.FC = () => {
         })
   }, [])
   return (
-    <ToggleButton onClick={toggleTheme}>
+    <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
       {theme === "dark" ? (
-        <FontAwesomeIcon icon={faSun} size="2x" />
-      ) : (
         <FontAwesomeIcon icon={faMoon} size="2x" />
+      ) : (
+        <FontAwesomeIcon icon={faSun} size="2x" />
       )}
     </ToggleButton>
   )
