@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-const ImageWrapper = styled(Img)`
+const CircleImg = styled(Img)`
   height: 100px;
   width: 100px;
   border-radius: 50%;
@@ -16,10 +16,10 @@ const ImageWrapper = styled(Img)`
   }
 `
 
-const ProfileImage = () => {
+const ProfileImage: React.FC = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "profile-with-mayme.jpg" }) {
+      engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
         childImageSharp {
           fluid(maxWidth: 240, traceSVG: { color: "#C80303" }) {
             ...GatsbyImageSharpFluid_tracedSVG
@@ -29,7 +29,7 @@ const ProfileImage = () => {
     }
   `)
 
-  return <ImageWrapper imgStyle={{height: 'auto'}} fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <CircleImg fluid={data.engageImage.childImageSharp.fluid} />
 }
 
 export default ProfileImage
