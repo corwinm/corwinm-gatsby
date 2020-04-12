@@ -64,16 +64,20 @@ const setThemeAttribute = (theme: "dark" | "light") => {
 
 const getOSTheme = () => {
   if (
+    typeof window !== "undefined" &&
     window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
+    window.matchMedia("(prefers-color-scheme: light)").matches
   ) {
-    return "dark"
+    return "light"
   }
-  return "light"
+  return "dark"
 }
 
 const loadTheme = () => {
-  const savedTheme = localStorage && localStorage.getItem("theme")
+  const savedTheme =
+    typeof window !== "undefined" &&
+    window.localStorage &&
+    localStorage.getItem("theme")
   if (savedTheme && (savedTheme === "dark" || savedTheme === "light"))
     return savedTheme
   return getOSTheme()
@@ -106,6 +110,7 @@ const Toggle: React.FC = () => {
     setThemeAttribute(theme)
   }, [theme])
   useEffect(() => {
+    typeof window !== "undefined" &&
     window.matchMedia &&
       window
         .matchMedia("(prefers-color-scheme: dark)")
