@@ -73,7 +73,7 @@ const getOSTheme = () => {
 }
 
 const loadTheme = () => {
-  const savedTheme = localStorage.getItem("theme")
+  const savedTheme = localStorage && localStorage.getItem("theme")
   if (savedTheme && (savedTheme === "dark" || savedTheme === "light"))
     return savedTheme
   return getOSTheme()
