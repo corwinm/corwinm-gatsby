@@ -23,8 +23,8 @@ function SEO({ description, lang, meta, title }) {
         }
         engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
           childImageSharp {
-            fluid {
-              src
+            fluid(base64Width: 300) {
+              base64
             }
           }
         }
@@ -60,7 +60,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: engageImage.childImageSharp.fluid.src,
+          content: engageImage.childImageSharp.fluid.base64,
         },
         {
           name: `twitter:card`,
