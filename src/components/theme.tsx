@@ -110,15 +110,25 @@ const Toggle: React.FC = () => {
     setThemeAttribute(theme)
   }, [theme])
   useEffect(() => {
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", () => {
+    const media =
+      typeof window !== "undefined" &&
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)")
+    if (media) {
+      if (media.addEventListener) {
+        media.addEventListener("change", () => {
           const newTheme = getOSTheme()
           localStorage.setItem("theme", newTheme)
           setTheme(newTheme)
         })
+      } else if (media.addListener) {
+        media.addListener(() => {
+          const newTheme = getOSTheme()
+          localStorage.setItem("theme", newTheme)
+          setTheme(newTheme)
+        })
+      }
+    }
   }, [])
   return (
     <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
