@@ -1,5 +1,5 @@
 require("dotenv").config({
-  URL: `.env.${process.env.URL}`,
+  URL: `.env.${process.env.DEPLOY_URL}`,
 })
 
 module.exports = {
