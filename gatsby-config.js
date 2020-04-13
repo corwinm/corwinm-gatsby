@@ -1,8 +1,14 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Corwin W. Marsh`,
     description: `Corwin Marsh's personal site.`,
     author: `Corwin W. Marsh`,
+    twitter: `@CorwinMarsh`,
+    url: process.env.URL || `url missing`,
   },
   plugins: [
     {

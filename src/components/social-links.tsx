@@ -84,6 +84,11 @@ const WebShareCancelEvent = {
   action: "cancel",
 }
 
+const WebShareFallbackEvent = {
+  category: WebShareCategory,
+  action: "fallback",
+}
+
 const share = async () => {
   if (navigator.share) {
     try {
@@ -98,6 +103,7 @@ const share = async () => {
       trackCustomEvent(WebShareCancelEvent)
     }
   } else {
+    trackCustomEvent(WebShareFallbackEvent)
     window.location.href = `mailto:?subject=${encodeURIComponent(
       "Corwin W. Marsh website"
     )}&body=${encodeURIComponent(

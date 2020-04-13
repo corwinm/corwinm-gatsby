@@ -20,12 +20,12 @@ const Container = styled.div`
 const Footer = styled.footer`
   position: sticky;
   bottom: 0;
-  background: ${props => props.theme.primary.background}D0;
+  background: ${(props) => props.theme.primary.translucentBg};
 `
 
 const MainContainer = styled.main`
   margin: 0 auto;
-  max-width: ${props => props.theme.primary.maxWidth};
+  max-width: ${(props) => props.theme.primary.maxWidth};
   padding: 0 1.0875rem 1.45rem;
 `
 
@@ -43,7 +43,9 @@ const Layout: React.FC = ({ children }) => {
   return (
     <Theme>
       <Container>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header siteTitle={data.site.siteMetadata.title}>
+          <Theme.Toggle />
+        </Header>
         <MainContainer>{children}</MainContainer>
         <Footer>
           <SocialLinks />
