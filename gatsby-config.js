@@ -8,7 +8,7 @@ module.exports = {
     description: `Corwin Marsh's personal site.`,
     author: `Corwin W. Marsh`,
     twitter: `@CorwinMarsh`,
-    url: process.env.DEPLOY_PRIME_URL || `url missing`,
+    url: process.env.URL || `url missing`,
   },
   plugins: [
     {
