@@ -19,6 +19,8 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            twitter
+            url
           }
         }
         engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
@@ -60,7 +62,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: process.env.GATSBY_URL + engageImage.childImageSharp.fluid.src,
+          content: site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
         },
         {
           name: `twitter:card`,
@@ -80,7 +82,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: process.env.GATSBY_URL + engageImage.childImageSharp.fluid.src,
+          content: site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
         },
       ].concat(meta)}
     />
