@@ -1,5 +1,5 @@
 require("dotenv").config({
-  URL: `.env.${process.env.DEPLOY_URL}`,
+  path: `.env.${process.env.NODE_ENV}`,
 })
 
 module.exports = {
@@ -8,7 +8,7 @@ module.exports = {
     description: `Corwin Marsh's personal site.`,
     author: `Corwin W. Marsh`,
     twitter: `@CorwinMarsh`,
-    url: process.env.URL || `url missing`,
+    url: process.env.DEPLOY_URL || `url missing`,
   },
   plugins: [
     {
