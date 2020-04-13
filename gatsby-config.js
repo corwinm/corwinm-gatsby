@@ -3,6 +3,7 @@ module.exports = {
     title: `Corwin W. Marsh`,
     description: `Corwin Marsh's personal site.`,
     author: `Corwin W. Marsh`,
+    twitter: `@CorwinMarsh`
   },
   plugins: [
     {

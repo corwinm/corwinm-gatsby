@@ -23,8 +23,8 @@ function SEO({ description, lang, meta, title }) {
         }
         engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
           childImageSharp {
-            fluid(base64Width: 300) {
-              base64
+            fluid {
+              src
             }
           }
         }
@@ -60,7 +60,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: engageImage.childImageSharp.fluid.base64,
+          content: process.env.URL + engageImage.childImageSharp.fluid.src,
         },
         {
           name: `twitter:card`,
@@ -68,7 +68,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.siteMetadata.twitter,
         },
         {
           name: `twitter:title`,
@@ -77,6 +77,10 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `twitter:image`,
+          content: process.env.URL + engageImage.childImageSharp.fluid.src,
         },
       ].concat(meta)}
     />
