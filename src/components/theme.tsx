@@ -103,10 +103,10 @@ const Toggle: React.FC = () => {
   const [theme, setTheme] = useState<"dark" | "light">(loadTheme)
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark"
-    localStorage.setItem("theme", newTheme)
     setTheme(newTheme)
   }
   useEffect(() => {
+    localStorage.setItem("theme", theme)
     setThemeAttribute(theme)
   }, [theme])
   useEffect(() => {
@@ -118,26 +118,28 @@ const Toggle: React.FC = () => {
       if (media.addEventListener) {
         media.addEventListener("change", () => {
           const newTheme = getOSTheme()
-          localStorage.setItem("theme", newTheme)
           setTheme(newTheme)
         })
       } else if (media.addListener) {
         media.addListener(() => {
           const newTheme = getOSTheme()
-          localStorage.setItem("theme", newTheme)
           setTheme(newTheme)
         })
       }
     }
   }, [])
   return (
-    <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
-      {theme === "dark" ? (
-        <FontAwesomeIcon icon={faMoon} size="2x" />
-      ) : (
-        <FontAwesomeIcon icon={faSun} size="2x" />
+    <>
+      {typeof window !== "undefined" && (
+        <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
+          {theme === "dark" ? (
+            <FontAwesomeIcon icon={faMoon} size="2x" />
+          ) : (
+            <FontAwesomeIcon icon={faSun} size="2x" />
+          )}
+        </ToggleButton>
       )}
-    </ToggleButton>
+    </>
   )
 }
 
