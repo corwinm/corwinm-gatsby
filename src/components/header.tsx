@@ -22,7 +22,6 @@ const HeaderContents = styled.div`
 
 const HeaderTitle = styled.h1`
   margin: 0 auto;
-  padding: 0 5px 0 0;
 `
 
 const StyledLink = styled(Link)`

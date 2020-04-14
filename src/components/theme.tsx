@@ -44,8 +44,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     color: ${baseTheme.primary.color};
-    background: ${baseTheme.primary.background};
+    background-color: ${baseTheme.primary.background};
     font-family: ${baseTheme.primary.fontFamily};
+    transition: background-color 200ms ease;
   }
 `
 
@@ -82,10 +83,13 @@ const loadTheme = () => {
     return savedTheme
   return getOSTheme()
 }
+
 const ToggleButton = styled.button`
   background: none;
   border: none;
   padding: 0;
+  padding-left: 6px;
+  width: 2em;
   color: ${(props) => props.theme.primary.link};
   &:hover {
     color: ${(props) => props.theme.primary.linkHover};
@@ -96,6 +100,7 @@ const ToggleButton = styled.button`
     top: 24px;
     height: 2rem;
     width: 2rem;
+    padding-left: 0;
   }
 `
 
@@ -129,17 +134,15 @@ const Toggle: React.FC = () => {
     }
   }, [])
   return (
-    <>
-      {typeof window !== "undefined" && (
-        <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
-          {theme === "dark" ? (
-            <FontAwesomeIcon icon={faMoon} size="2x" />
-          ) : (
-            <FontAwesomeIcon icon={faSun} size="2x" />
-          )}
-        </ToggleButton>
+    <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
+      {typeof window === "undefined" ? (
+        ""
+      ) : theme === "dark" ? (
+        <FontAwesomeIcon icon={faMoon} size="2x" />
+      ) : (
+        <FontAwesomeIcon icon={faSun} size="2x" />
       )}
-    </>
+    </ToggleButton>
   )
 }
 
