@@ -88,7 +88,6 @@ const ToggleButton = styled.button`
   background: none;
   border: none;
   padding: 0;
-  padding-left: 6px;
   width: 2em;
   color: ${(props) => props.theme.primary.link};
   &:hover {
@@ -100,7 +99,6 @@ const ToggleButton = styled.button`
     top: 24px;
     height: 2rem;
     width: 2rem;
-    padding-left: 0;
   }
 `
 
