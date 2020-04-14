@@ -44,8 +44,9 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     color: ${baseTheme.primary.color};
-    background: ${baseTheme.primary.background};
+    background-color: ${baseTheme.primary.background};
     font-family: ${baseTheme.primary.fontFamily};
+    transition: background-color 200ms ease;
   }
 `
 
@@ -82,10 +83,12 @@ const loadTheme = () => {
     return savedTheme
   return getOSTheme()
 }
+
 const ToggleButton = styled.button`
   background: none;
   border: none;
   padding: 0;
+  width: 2em;
   color: ${(props) => props.theme.primary.link};
   &:hover {
     color: ${(props) => props.theme.primary.linkHover};
@@ -103,10 +106,10 @@ const Toggle: React.FC = () => {
   const [theme, setTheme] = useState<"dark" | "light">(loadTheme)
   const toggleTheme = () => {
     const newTheme = theme === "dark" ? "light" : "dark"
-    localStorage.setItem("theme", newTheme)
     setTheme(newTheme)
   }
   useEffect(() => {
+    localStorage.setItem("theme", theme)
     setThemeAttribute(theme)
   }, [theme])
   useEffect(() => {
@@ -118,13 +121,11 @@ const Toggle: React.FC = () => {
       if (media.addEventListener) {
         media.addEventListener("change", () => {
           const newTheme = getOSTheme()
-          localStorage.setItem("theme", newTheme)
           setTheme(newTheme)
         })
       } else if (media.addListener) {
         media.addListener(() => {
           const newTheme = getOSTheme()
-          localStorage.setItem("theme", newTheme)
           setTheme(newTheme)
         })
       }
@@ -132,7 +133,9 @@ const Toggle: React.FC = () => {
   }, [])
   return (
     <ToggleButton onClick={toggleTheme} title={`Toggle ${theme} mode.`}>
-      {theme === "dark" ? (
+      {typeof window === "undefined" ? (
+        ""
+      ) : theme === "dark" ? (
         <FontAwesomeIcon icon={faMoon} size="2x" />
       ) : (
         <FontAwesomeIcon icon={faSun} size="2x" />
