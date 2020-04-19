@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
+import { loadTheme, setThemeAttribute, getMediaQueryList, getOSTheme } from "../utils/theme"
 
 const baseTheme = {
   primary: {
@@ -46,7 +47,6 @@ const GlobalStyle = createGlobalStyle`
     color: ${baseTheme.primary.color};
     background-color: ${baseTheme.primary.background};
     font-family: ${baseTheme.primary.fontFamily};
-    transition: background-color 200ms ease;
   }
 `
 
@@ -57,31 +57,6 @@ const Theme: React.FC & { Toggle: React.FC } = ({ children }) => {
       <GlobalStyle theme={baseTheme} />
     </ThemeProvider>
   )
-}
-
-const setThemeAttribute = (theme: "dark" | "light") => {
-  document.querySelector("html")?.setAttribute("data-theme", theme)
-}
-
-const getOSTheme = () => {
-  if (
-    typeof window !== "undefined" &&
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: light)").matches
-  ) {
-    return "light"
-  }
-  return "dark"
-}
-
-const loadTheme = () => {
-  const savedTheme =
-    typeof window !== "undefined" &&
-    window.localStorage &&
-    localStorage.getItem("theme")
-  if (savedTheme && (savedTheme === "dark" || savedTheme === "light"))
-    return savedTheme
-  return getOSTheme()
 }
 
 const ToggleButton = styled.button`
@@ -113,10 +88,7 @@ const Toggle: React.FC = () => {
     setThemeAttribute(theme)
   }, [theme])
   useEffect(() => {
-    const media =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)")
+    const media = getMediaQueryList()
     if (media) {
       if (media.addEventListener) {
         media.addEventListener("change", () => {
