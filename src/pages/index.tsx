@@ -17,7 +17,7 @@ const IndexPage = () => (
     <SEO title="Home" />
     <ProfileImage />
     <h1>Software Engineer. Husband. Father.</h1>
-    <p>Hi! I'm Corwin. Welcome to my personal site!</p>
+    <p>{"Hi! I'm Corwin. Welcome to my personal site!"}</p>
     <p>
       I am a Solution Architect for{" "}
       <ProfileLink href="https://www.slalombuild.com/">

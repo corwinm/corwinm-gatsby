@@ -62,7 +62,8 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
+          content:
+            site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
         },
         {
           name: `twitter:card`,
@@ -82,7 +83,8 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:image`,
-          content: site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
+          content:
+            site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
         },
       ].concat(meta)}
     />

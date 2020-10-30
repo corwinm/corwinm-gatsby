@@ -128,7 +128,7 @@ const SocialLinks: React.FC = () => {
         </SocialItem>
       ))}
       <SocialItem>
-        <SocialButton onClick={share}>
+        <SocialButton onClick={share} title="Share">
           <FontAwesomeIcon icon={faExternalLinkSquareAlt} size="3x" />
         </SocialButton>
       </SocialItem>

@@ -3,7 +3,7 @@
     "activityBar.background": "#000000",
     "activityBar.foreground": "#C80303",
     "activityBar.border": "#C80303",
-    "activityBar.activeBackground": "#000000",
+    "activityBar.activeBackground": "#3b0000",
     "activityBar.activeFocusBorder": "#C80303",
     "activityBar.inactiveForeground": "#C80303",
     "activityBarBadge.background": "#ffffff",

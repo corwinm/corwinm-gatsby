@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react"
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSun, faMoon } from "@fortawesome/free-solid-svg-icons"
-import { loadTheme, setThemeAttribute, getMediaQueryList, getOSTheme } from "../utils/theme"
+import {
+  loadTheme,
+  setThemeAttribute,
+  getMediaQueryList,
+  getOSTheme,
+} from "../utils/theme"
 
 const baseTheme = {
   primary: {
