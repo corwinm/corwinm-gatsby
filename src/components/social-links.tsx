@@ -12,6 +12,10 @@ import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons"
 
 const SocialItem = styled.li`
   display: block;
+
+  svg {
+    padding: 0 4px;
+  }
 `
 
 const SocialLink = styled(OutboundLink)`
