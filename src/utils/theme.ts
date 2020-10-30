@@ -1,4 +1,3 @@
-
 export const setThemeAttribute = (theme: "dark" | "light") => {
   document.querySelector("html")?.setAttribute("data-theme", theme)
 }

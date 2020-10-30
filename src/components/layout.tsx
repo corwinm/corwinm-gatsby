@@ -12,6 +12,7 @@ import styled from "styled-components"
 import Header from "./header"
 import SocialLinks from "./social-links"
 import Theme from "./theme"
+import "./layout.css"
 
 const Container = styled.div`
   min-height: 100vh;

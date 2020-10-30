@@ -10,9 +10,9 @@ const StickyHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 900;
-  background: ${props => props.theme.primary.translucentBg};
+  background: ${(props) => props.theme.primary.translucentBg};
   margin-bottom: 1.45rem;
-  box-shadow: 0px 2px 5px ${props => props.theme.primary.shadow};
+  box-shadow: 0px 2px 5px ${(props) => props.theme.primary.shadow};
 `
 
 const HeaderContents = styled.div`
@@ -25,11 +25,11 @@ const HeaderTitle = styled.h1`
 `
 
 const StyledLink = styled(Link)`
-  color: ${props => props.theme.primary.link};
+  color: ${(props) => props.theme.primary.link};
   text-decoration: none;
   line-height: 48px;
   &:hover {
-    color: ${props => props.theme.primary.linkHover};
+    color: ${(props) => props.theme.primary.linkHover};
   }
 `
 

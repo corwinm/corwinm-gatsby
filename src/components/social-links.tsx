@@ -12,6 +12,10 @@ import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons"
 
 const SocialItem = styled.li`
   display: block;
+
+  svg {
+    padding: 0 4px;
+  }
 `
 
 const SocialLink = styled(OutboundLink)`
@@ -128,7 +132,7 @@ const SocialLinks: React.FC = () => {
         </SocialItem>
       ))}
       <SocialItem>
-        <SocialButton onClick={share}>
+        <SocialButton onClick={share} title="Share">
           <FontAwesomeIcon icon={faExternalLinkSquareAlt} size="3x" />
         </SocialButton>
       </SocialItem>
