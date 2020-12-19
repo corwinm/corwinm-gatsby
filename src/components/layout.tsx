@@ -16,16 +16,20 @@ import "./layout.css"
 
 const Container = styled.div`
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 `
 
 const Footer = styled.footer`
   position: sticky;
   bottom: 0;
+  padding: 0.5rem;
   background: ${(props) => props.theme.primary.translucentBg};
 `
 
 const MainContainer = styled.main`
   margin: 0 auto;
+  flex: 1 auto;
   max-width: ${(props) => props.theme.primary.maxWidth};
   padding: 0 1.0875rem 1.45rem;
 `
