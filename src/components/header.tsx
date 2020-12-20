@@ -20,8 +20,14 @@ const HeaderContents = styled.div`
   padding: 1rem 1.0875rem;
 `
 
-const HeaderTitle = styled.h1`
-  margin: 0 auto;
+const HeaderTitle = styled.span`
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin: 0 auto 0 0;
+  @media (min-width: 768px) {
+    margin: 0 auto;
+  }
 `
 
 const StyledLink = styled(Link)`

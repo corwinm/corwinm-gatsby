@@ -10,6 +10,7 @@ module.exports = {
     twitter: `@CorwinMarsh`,
     url: process.env.URL || `url missing`,
   },
+  flags: { DEV_SSR: true },
   plugins: [
     {
       resolve: `gatsby-plugin-google-analytics`,

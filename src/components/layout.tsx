@@ -1,10 +1,3 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
@@ -21,13 +14,19 @@ const Container = styled.div`
 const Footer = styled.footer`
   position: sticky;
   bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem;
   background: ${(props) => props.theme.primary.translucentBg};
+  @media (min-width: 768px) {
+    position: fixed;
+  }
 `
 
 const MainContainer = styled.main`
   margin: 0 auto;
   max-width: ${(props) => props.theme.primary.maxWidth};
-  padding: 0 1.0875rem 1.45rem;
+  padding: 0 1rem 1.5rem;
 `
 
 const Layout: React.FC = ({ children }) => {
