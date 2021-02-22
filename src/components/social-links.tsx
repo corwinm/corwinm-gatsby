@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { OutboundLink, trackCustomEvent } from "gatsby-plugin-google-analytics"
+import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faLinkedin,
@@ -9,6 +9,16 @@ import {
   faFacebookSquare,
 } from "@fortawesome/free-brands-svg-icons"
 import { faExternalLinkSquareAlt } from "@fortawesome/free-solid-svg-icons"
+
+type CustomEvent = {
+  category: string
+  action: string
+}
+
+function trackCustomEvent(event: CustomEvent) {
+  // @ts-ignore
+  typeof window !== "undefined" && window.gtag(event.category, event.action)
+}
 
 const SocialItem = styled.li`
   display: block;
@@ -78,17 +88,17 @@ const socialItems = [
 
 const WebShareCategory = "Web Share Button"
 
-const WebShareEvent = {
+const WebShareEvent: CustomEvent = {
   category: WebShareCategory,
   action: "share",
 }
 
-const WebShareCancelEvent = {
+const WebShareCancelEvent: CustomEvent = {
   category: WebShareCategory,
   action: "cancel",
 }
 
-const WebShareFallbackEvent = {
+const WebShareFallbackEvent: CustomEvent = {
   category: WebShareCategory,
   action: "fallback",
 }

@@ -29,6 +29,7 @@ const GlobalStyle = createGlobalStyle`
     --link-color-normal: #FFFFFF;
     --background-color-normal: #000000;
     --background-color-translucent: #000000D0;
+    --focus-color: #0066ff;
   }
 
   @media (prefers-color-scheme: light) {
@@ -52,6 +53,11 @@ const GlobalStyle = createGlobalStyle`
     color: ${baseTheme.primary.color};
     background-color: ${baseTheme.primary.background};
     font-family: ${baseTheme.primary.fontFamily};
+  }
+
+  :focus {
+    outline: var(--focus-color) solid 4px;
+    outline-offset: 0;
   }
 `
 

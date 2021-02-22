@@ -11,8 +11,8 @@ const CircleImg = styled(Img)`
   @media (min-width: 768px) {
     height: 240px;
     width: 240px;
-    margin: 0 16px 0 0;
-    float: left;
+    min-width: 240px;
+    margin: 1rem 0;
   }
 `
 

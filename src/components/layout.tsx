@@ -5,7 +5,6 @@ import styled from "styled-components"
 import Header from "./header"
 import SocialLinks from "./social-links"
 import Theme from "./theme"
-import "./layout.css"
 
 const Container = styled.div`
   min-height: 100vh;
@@ -18,7 +17,7 @@ const Footer = styled.footer`
   right: 0;
   padding: 0.5rem;
   background: ${(props) => props.theme.primary.translucentBg};
-  @media (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     position: fixed;
   }
 `
@@ -27,6 +26,12 @@ const MainContainer = styled.main`
   margin: 0 auto;
   max-width: ${(props) => props.theme.primary.maxWidth};
   padding: 0 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    column-gap: 1rem;
+  }
 `
 
 const Layout: React.FC = ({ children }) => {
