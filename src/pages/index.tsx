@@ -5,13 +5,13 @@ import SEO from "../components/seo"
 import ProfileImage from "../components/profile-image"
 import { ProfileLink } from "../components/profile-link"
 
-const IndexPage = () => (
+const IndexPage = (): JSX.Element => (
   <Layout>
     <SEO title="Home" />
     <ProfileImage />
     <section>
       <h1>Software Engineer. Husband. Father.</h1>
-      <p>Hi! I'm Corwin. Welcome to my personal site!</p>
+      <p>{"Hi! I'm Corwin. Welcome to my personal site!"}</p>
       <p>
         I am a{" "}
         <ProfileLink href="https://www.slalombuild.com/">
@@ -20,8 +20,9 @@ const IndexPage = () => (
         Software Engineering Architect in Seattle.
       </p>
       <p>
-        I like to try new technologies and apply that learning to aid my
-        professional life. I'm currently learning:
+        {
+          "I like to try new technologies and apply that learning to aid my professional life. I'm currently learning:"
+        }
       </p>
       <ul>
         <li>
