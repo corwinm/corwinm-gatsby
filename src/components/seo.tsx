@@ -6,14 +6,30 @@
  */
 
 import React from "react"
-import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+type MetaArray = React.DetailedHTMLProps<
+  React.MetaHTMLAttributes<HTMLMetaElement>,
+  HTMLMetaElement
+>[]
+
+type SEOProps = {
+  description?: string
+  lang?: string
+  meta?: MetaArray
+  title: string
+}
+
+function SEO({
+  description = "",
+  lang = `en`,
+  meta = [],
+  title,
+}: SEOProps): JSX.Element {
   const { site, engageImage } = useStaticQuery(
     graphql`
-      query {
+      {
         site {
           siteMetadata {
             title
@@ -25,9 +41,7 @@ function SEO({ description, lang, meta, title }) {
         }
         engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
           childImageSharp {
-            fluid {
-              src
-            }
+            gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
           }
         }
       }
@@ -43,7 +57,7 @@ function SEO({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
+      meta={([
         {
           name: `description`,
           content: metaDescription,
@@ -63,7 +77,8 @@ function SEO({ description, lang, meta, title }) {
         {
           property: `og:image`,
           content:
-            site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
+            site.siteMetadata.url +
+            engageImage.childImageSharp.gatsbyImageData.src,
         },
         {
           name: `twitter:card`,
@@ -84,24 +99,12 @@ function SEO({ description, lang, meta, title }) {
         {
           name: `twitter:image`,
           content:
-            site.siteMetadata.url + engageImage.childImageSharp.fluid.src,
+            site.siteMetadata.url +
+            engageImage.childImageSharp.gatsbyImageData.src,
         },
-      ].concat(meta)}
+      ] as MetaArray).concat(meta)}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO

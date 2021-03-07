@@ -15,7 +15,7 @@ export const ProfileLink = ({
 }: {
   href: string
   children: React.ReactNode
-}) => (
+}): JSX.Element => (
   <StyledProfileLink href={href} target="_blank" rel="noopener noreferrer">
     {children}
   </StyledProfileLink>

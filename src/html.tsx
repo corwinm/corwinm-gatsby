@@ -1,5 +1,4 @@
 import React from "react"
-import PropTypes from "prop-types"
 
 const initialTheme = `
   (function() {
@@ -10,7 +9,22 @@ const initialTheme = `
   }())
 `
 
-export default function HTML(props) {
+type HTMLProps = {
+  htmlAttributes: React.DetailedHTMLProps<
+    React.HtmlHTMLAttributes<HTMLHtmlElement>,
+    HTMLHtmlElement
+  >
+  headComponents: React.ReactNode
+  bodyAttributes: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLBodyElement>,
+    HTMLBodyElement
+  >
+  preBodyComponents: React.ReactNode
+  body: string
+  postBodyComponents: React.ReactNode
+}
+
+export default function HTML(props: HTMLProps): JSX.Element {
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -38,13 +52,4 @@ export default function HTML(props) {
       </body>
     </html>
   )
-}
-
-HTML.propTypes = {
-  htmlAttributes: PropTypes.object,
-  headComponents: PropTypes.array,
-  bodyAttributes: PropTypes.object,
-  preBodyComponents: PropTypes.array,
-  body: PropTypes.string,
-  postBodyComponents: PropTypes.array,
 }

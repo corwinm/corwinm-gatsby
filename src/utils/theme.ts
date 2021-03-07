@@ -1,8 +1,9 @@
-export const setThemeAttribute = (theme: "dark" | "light") => {
+type ThemeOptions = "light" | "dark"
+export const setThemeAttribute = (theme: ThemeOptions): void => {
   document.querySelector("html")?.setAttribute("data-theme", theme)
 }
 
-export const getMediaQueryList = () => {
+export const getMediaQueryList = (): MediaQueryList | undefined => {
   return (
     (typeof window !== "undefined" &&
       window.matchMedia &&
@@ -11,14 +12,14 @@ export const getMediaQueryList = () => {
   )
 }
 
-export const getOSTheme = () => {
+export const getOSTheme = (): ThemeOptions => {
   if (getMediaQueryList()?.matches) {
     return "light"
   }
   return "dark"
 }
 
-export const getSavedTheme = () => {
+export const getSavedTheme = (): ThemeOptions | undefined => {
   const savedTheme =
     typeof window !== "undefined" &&
     window.localStorage &&
@@ -28,6 +29,6 @@ export const getSavedTheme = () => {
   }
 }
 
-export const loadTheme = () => {
+export const loadTheme = (): ThemeOptions => {
   return getSavedTheme() || getOSTheme()
 }

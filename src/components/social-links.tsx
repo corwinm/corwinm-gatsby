@@ -16,8 +16,8 @@ type CustomEvent = {
 }
 
 function trackCustomEvent(event: CustomEvent) {
-  // @ts-ignore
-  typeof window !== "undefined" && window.gtag(event.category, event.action)
+  typeof window !== "undefined" &&
+    window.gtag("event", event.category, { method: event.action })
 }
 
 const SocialItem = styled.li`
