@@ -1,6 +1,5 @@
 module.exports = {
   parser: "@typescript-eslint/parser", // Specifies the ESLint parser
-  files: ["*.ts", "*.tsx"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
