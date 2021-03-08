@@ -30,6 +30,7 @@ const MainContainer = styled.main`
   flex-direction: column;
   @media screen and (min-width: 768px) {
     flex-direction: row;
+    margin-bottom: 2rem;
   }
 `
 
