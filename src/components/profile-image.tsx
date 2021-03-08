@@ -8,11 +8,12 @@ const CircleImg = styled(GatsbyImage)`
   width: 100px;
   border-radius: 50%;
   margin: auto;
+  z-index: 0;
   @media (min-width: 768px) {
     height: 240px;
     width: 240px;
     min-width: 240px;
-    margin: 1rem 0;
+    margin: 1rem 1rem 0;
   }
 `
 
@@ -26,6 +27,7 @@ const ProfileImage: React.FC = () => {
             tracedSVGOptions: { color: "#C80303" }
             placeholder: TRACED_SVG
             layout: CONSTRAINED
+            formats: [AUTO, WEBP, AVIF]
           )
         }
       }

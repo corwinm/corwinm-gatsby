@@ -59,6 +59,10 @@ const GlobalStyle = createGlobalStyle`
     outline: var(--focus-color) solid 4px;
     outline-offset: 0;
   }
+
+  p {
+    max-width: 35em;
+  }
 `
 
 const Theme: React.FC & { Toggle: React.FC } = ({ children }) => {
