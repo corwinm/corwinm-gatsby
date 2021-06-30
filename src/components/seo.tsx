@@ -57,52 +57,54 @@ function SEO({
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={([
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content:
-            site.siteMetadata.url +
-            engageImage.childImageSharp.gatsbyImageData.src,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.twitter,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-        {
-          name: `twitter:image`,
-          content:
-            site.siteMetadata.url +
-            engageImage.childImageSharp.gatsbyImageData.src,
-        },
-      ] as MetaArray).concat(meta)}
+      meta={(
+        [
+          {
+            name: `description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:title`,
+            content: title,
+          },
+          {
+            property: `og:description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:type`,
+            content: `website`,
+          },
+          {
+            property: `og:image`,
+            content:
+              site.siteMetadata.url +
+              engageImage.childImageSharp.gatsbyImageData.src,
+          },
+          {
+            name: `twitter:card`,
+            content: `summary`,
+          },
+          {
+            name: `twitter:creator`,
+            content: site.siteMetadata.twitter,
+          },
+          {
+            name: `twitter:title`,
+            content: title,
+          },
+          {
+            name: `twitter:description`,
+            content: metaDescription,
+          },
+          {
+            name: `twitter:image`,
+            content:
+              site.siteMetadata.url +
+              engageImage.childImageSharp.gatsbyImageData.src,
+          },
+        ] as MetaArray
+      ).concat(meta)}
     />
   )
 }
