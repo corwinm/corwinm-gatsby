@@ -1,6 +1,11 @@
 type ThemeOptions = "light" | "dark"
 export const setThemeAttribute = (theme: ThemeOptions): void => {
   document.querySelector("html")?.setAttribute("data-theme", theme)
+  if (theme === "dark") {
+    document.documentElement.classList.add("dark")
+  } else {
+    document.documentElement.classList.remove("dark")
+  }
 }
 
 export const getMediaQueryList = (): MediaQueryList | undefined => {

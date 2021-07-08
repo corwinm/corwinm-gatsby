@@ -1,21 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
-import styled from "styled-components"
-
-const CircleImg = styled(GatsbyImage)`
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
-  margin: auto;
-  z-index: 0;
-  @media (min-width: 768px) {
-    height: 240px;
-    width: 240px;
-    min-width: 240px;
-    margin: 1rem 1rem 0;
-  }
-`
 
 const ProfileImage: React.FC = () => {
   const data = useStaticQuery(graphql`
@@ -23,7 +8,7 @@ const ProfileImage: React.FC = () => {
       engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
         childImageSharp {
           gatsbyImageData(
-            width: 240
+            width: 256
             tracedSVGOptions: { color: "#C80303" }
             placeholder: TRACED_SVG
             layout: CONSTRAINED
@@ -35,7 +20,8 @@ const ProfileImage: React.FC = () => {
   `)
 
   return (
-    <CircleImg
+    <GatsbyImage
+      className="h-24 w-24 rounded-full m-auto z-0 md:h-64 md:w-64 md:mt-4 md:mx-4"
       image={data.engageImage.childImageSharp.gatsbyImageData}
       alt="Corwin's profile image"
     />

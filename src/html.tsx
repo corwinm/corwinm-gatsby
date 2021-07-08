@@ -6,6 +6,11 @@ const initialTheme = `
     var matches = window.matchMedia("(prefers-color-scheme: light)")
     theme = theme || ((matches && matches.matches) ? "light" : "dark")
     document.querySelector("html").setAttribute("data-theme", theme)
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
   }())
 `
 
@@ -36,7 +41,10 @@ export default function HTML(props: HTMLProps): JSX.Element {
         />
         {props.headComponents}
       </head>
-      <body {...props.bodyAttributes}>
+      <body
+        {...props.bodyAttributes}
+        className="dark:bg-black dark:text-white font-sans"
+      >
         <script
           dangerouslySetInnerHTML={{
             __html: initialTheme,

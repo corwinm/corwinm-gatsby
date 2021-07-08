@@ -5,6 +5,7 @@
  */
 
 // You can delete this file if you're not using it
+import "./src/css/index.css"
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const onClientEntry = async () => {

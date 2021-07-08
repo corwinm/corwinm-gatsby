@@ -1,5 +1,4 @@
 import React from "react"
-import styled from "styled-components"
 import { OutboundLink } from "gatsby-plugin-google-gtag"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -19,49 +18,6 @@ function trackCustomEvent(event: CustomEvent) {
   typeof window !== "undefined" &&
     window.gtag("event", event.category, { method: event.action })
 }
-
-const SocialItem = styled.li`
-  display: block;
-
-  svg {
-    padding: 0 4px;
-  }
-`
-
-const SocialLink = styled(OutboundLink)`
-  color: ${(props) => props.theme.primary.link};
-  &:hover {
-    color: ${(props) => props.theme.primary.linkHover};
-  }
-`
-
-const SocialButton = styled.button`
-  color: ${(props) => props.theme.primary.link};
-  &:hover {
-    color: ${(props) => props.theme.primary.linkHover};
-  }
-  padding: 0;
-  border: none;
-  margin: 0;
-  background: none;
-  font-size: inherit;
-  cursor: pointer;
-`
-
-const SocialList = styled.ul`
-  margin: auto;
-  padding: 0;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 16em;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    width: 20em;
-  }
-`
 
 const socialItems = [
   {
@@ -128,25 +84,30 @@ const share = async () => {
 
 const SocialLinks: React.FC = () => {
   return (
-    <SocialList>
+    <ul className="flex w-64 m-auto justify-between md:flex-row md:w-80">
       {socialItems.map((item) => (
-        <SocialItem key={item.title}>
-          <SocialLink
+        <li key={item.title}>
+          <OutboundLink
             href={item.link}
             title={item.title}
             rel="noopener noreferrer"
             target="_blank"
+            className="hover:text-red-600"
           >
-            <FontAwesomeIcon icon={item.icon} size="3x" />
-          </SocialLink>
-        </SocialItem>
+            <FontAwesomeIcon icon={item.icon} size="3x" className="p-0" />
+          </OutboundLink>
+        </li>
       ))}
-      <SocialItem>
-        <SocialButton onClick={share} title="Share">
-          <FontAwesomeIcon icon={faExternalLinkSquareAlt} size="3x" />
-        </SocialButton>
-      </SocialItem>
-    </SocialList>
+      <li>
+        <button onClick={share} title="Share" className="hover:text-red-600">
+          <FontAwesomeIcon
+            icon={faExternalLinkSquareAlt}
+            size="3x"
+            className="p-0"
+          />
+        </button>
+      </li>
+    </ul>
   )
 }
 
