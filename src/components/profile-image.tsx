@@ -8,7 +8,7 @@ const ProfileImage: React.FC = () => {
       engageImage: file(relativePath: { eq: "profile-engage.jpg" }) {
         childImageSharp {
           gatsbyImageData(
-            width: 256
+            width: 224
             tracedSVGOptions: { color: "#C80303" }
             placeholder: TRACED_SVG
             layout: CONSTRAINED
@@ -21,7 +21,7 @@ const ProfileImage: React.FC = () => {
 
   return (
     <GatsbyImage
-      className="h-24 w-24 rounded-full m-auto z-0 md:h-64 md:w-64 md:mt-4 md:mx-4"
+      className="h-24 w-24 rounded-full m-auto z-0 md:h-56 md:w-56 md:min-w-max md:mt-4 md:mx-4"
       image={data.engageImage.childImageSharp.gatsbyImageData}
       alt="Corwin's profile image"
     />
