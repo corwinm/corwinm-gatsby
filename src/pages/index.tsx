@@ -28,6 +28,9 @@ const IndexPage = (): JSX.Element => (
       </p>
       <ul className="my-2 ml-8 list-disc">
         <li>
+          <ProfileLink href="https://remix.run/">Remix</ProfileLink>
+        </li>
+        <li>
           <ProfileLink href="https://single-spa.js.org/">
             Single-Spa
           </ProfileLink>
@@ -36,9 +39,6 @@ const IndexPage = (): JSX.Element => (
           <ProfileLink href="https://developer.mozilla.org/en-US/docs/Web/Accessibility">
             Web Accessibility (a11y)
           </ProfileLink>
-        </li>
-        <li>
-          <ProfileLink href="https://www.gatsbyjs.com/">Gatsby</ProfileLink>
         </li>
         <li>
           <ProfileLink href="https://react-query.tanstack.com/">
